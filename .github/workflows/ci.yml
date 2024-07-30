@@ -21,7 +21,8 @@ jobs:
       - name: Force Failure
         run: go test -cover ./...
 
-  style:
+  fmttest:
+    name: Style
     runs-on: ubuntu-latest
 
     steps:
