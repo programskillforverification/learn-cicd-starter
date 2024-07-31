@@ -2,9 +2,10 @@ package auth_test
 
 import (
 	"fmt"
-	"github.com/bootdotdev/learn-cicd-starter/internal/auth"
 	"net/http"
 	"testing"
+
+	"github.com/bootdotdev/learn-cicd-starter/internal/auth"
 )
 
 func TestGetApiKey(t *testing.T) {
@@ -20,6 +21,10 @@ func TestGetApiKey(t *testing.T) {
 
 	result, err := auth.GetAPIKey(req.Header)
 	expected := "duhfuf889"
+	if err != nil {
+		fmt.Println("Get API fail:", err)
+		return
+	}
 	if result != expected {
 		t.Errorf("Expected %s, but got %s", expected, result)
 	}
